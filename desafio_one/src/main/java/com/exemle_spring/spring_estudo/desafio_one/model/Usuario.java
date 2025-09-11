@@ -1,14 +1,9 @@
 package com.exemle_spring.spring_estudo.desafio_one.model;
 
-import java.util.List;
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity
 public class Usuario {
@@ -20,21 +15,27 @@ public class Usuario {
     private String nome;
     private Integer idade;
     private String senha;
-
-    @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Tarefas> tarefa;
+    private String email;
 
     public Usuario() {
     }
 
-    public Usuario(String nome, int idade, String senha, List<Tarefas> tarefa) {
+    public Usuario(String nome, int idade, String senha, String email) {
         this.nome = nome;
         this.idade = idade;
         this.senha = senha;
-        this.tarefa = tarefa;
+        this.email = email;
     }
 
-    public Integer getId() {
+    public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Integer getId() {
         return id;
     }
 
@@ -64,13 +65,5 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public List<Tarefas> getTarefa() {
-        return tarefa;
-    }
-
-    public void setTarefa(List<Tarefas> tarefa) {
-        this.tarefa = tarefa;
     }
 }
