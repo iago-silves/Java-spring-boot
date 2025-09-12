@@ -1,9 +1,11 @@
 package com.exemle_spring.spring_estudo.desafio_one.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 public class Usuario {
@@ -11,10 +13,21 @@ public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
+    
+    @Column(nullable = false)
+	@NotBlank
     private String nome;
+    
+    @Column(nullable = false)
+	@NotBlank
     private Integer idade;
+    
+    @Column(nullable = false)
+	@NotBlank
     private String senha;
+    
+    @Column(nullable = false)
+	@NotBlank
     private String email;
 
     public Usuario() {

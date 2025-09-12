@@ -8,34 +8,36 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 
 @Entity
-public class Tarefas {
+public class Tarefa {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 
 	@Column(nullable = false)
-	@NotBlank
+	@NotBlank(message = "O nome da tarefa não pode estar vazio")
 	private String nome;
+
+	@Column(nullable = false)
+	@NotBlank(message = "A descrição da tarefa não pode estar vazia")
 	private String descricao;
 
 	@ManyToOne
 	@JoinColumn(name = "usuario_id")
-	@NotNull
 	private Usuario usuario;
 
-	public Tarefas() {
+	public Tarefa() {
 	}
 
-	public Tarefas(String nome, String descricao, Usuario usuario) {
+	public Tarefa(String nome, String descricao, Usuario usuario) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.usuario = usuario;
 	}
 
+	// Getters e Setters
 	public Integer getId() {
 		return id;
 	}

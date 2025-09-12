@@ -4,12 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.exemle_spring.spring_estudo.desafio_one.model.Usuario;
-import com.exemle_spring.spring_estudo.desafio_one.repositorie.UsuarioRepositorie;
+import com.exemle_spring.spring_estudo.desafio_one.repositorie.UsuarioRepository;
 
 @Service
 public class UsuarioService {
 	@Autowired
-	private UsuarioRepositorie usuariosRepositorio;
+	private UsuarioRepository usuariosRepositorio;
 	
 	public Usuario addUsuario(Usuario usuario) {
 	    return usuariosRepositorio.save(usuario);
