@@ -36,8 +36,7 @@ public class Tarefa {
 		this.descricao = descricao;
 		this.usuario = usuario;
 	}
-
-	// Getters e Setters
+	
 	public Integer getId() {
 		return id;
 	}
